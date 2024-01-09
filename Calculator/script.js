@@ -20,8 +20,22 @@ arr.forEach(button=>{
             input.value=string;
         }
         else if(e.target.textContent=='='){
+            let x=document.getElementById("message")
+            x.innerHTML=""
+            x.style.color="white";
+            try{
             string=eval(string);
+            if(string==Infinity){
+                string="";
+                throw "Error:Division By 0";
+            }
             input.value=string;
+        }
+            catch(err)
+            {
+                x.innerHTML=err+"!"
+            }
+            
         }
         else{
             string+=e.target.textContent;
